@@ -4,8 +4,19 @@
 var oDictionary = require('./lib/AFINN.js');
 var oLangDetect = new (require('languagedetect'));
 
-function tokenize(input) {
-  return input
+/**
+ * Split a sentence into words
+ *
+ * @param sInput
+ * @returns {Array}
+ */
+function tokenize(sInput) {
+
+  if (sInput.length === 0) {
+    return [];
+  }
+
+  return sInput
     .toLowerCase()
     .replace(/\r?\n|\r/g, ' ') // line breaks replaced by space https://stackoverflow.com/a/10805292
     .replace(/[.,\/#!$%\^&\*;:{}=_`\"~()]/g, '')

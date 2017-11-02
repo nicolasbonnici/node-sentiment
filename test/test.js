@@ -74,3 +74,34 @@ describe('Emoji support', function () {
     assert.equal(sentiment('😭').vote, 'negative');
   });
 });
+
+describe('Test tokenize() method integration', function () {
+
+  it('It should output an empty array with an empty input', function () {
+
+    assert.equal(
+      sentiment('', 'en').tokens.length,
+      0,
+      'Tokenize must return zero chunk'
+    );
+
+  });
+
+  it('It should correctly explode this string in 7 chunks even with \\n.', function () {
+
+    assert.equal(
+      sentiment("C'est super de faire des retour chariots!", 'en').tokens.length,
+      7,
+      'Tokenize must return 7 chunks even with a new line'
+    );
+
+
+    assert.equal(
+      sentiment("C'est super de faire des \n retour chariots!", 'en').tokens.length,
+      7,
+      'Tokenize must return 7 chunks even with a new line'
+    );
+
+  });
+
+});
