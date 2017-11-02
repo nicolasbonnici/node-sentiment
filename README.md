@@ -3,6 +3,8 @@
 
 Sentiment is a Node.js module that uses the [AFINN-111](http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010) wordlist to perform [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) on arbitrary blocks of input text.
 
+Sentiment analysis is suitable at a sentence level, for long strings, please tokenize sentences and use sentiment on every chunk.
+
 Multilanguage, only full support for english and french (PR contributions are welcome)
 
 He has full support on emoji analysis.

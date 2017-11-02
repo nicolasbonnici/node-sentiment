@@ -7,7 +7,9 @@ var oLangDetect = new (require('languagedetect'));
 function tokenize(input) {
   return input
     .toLowerCase()
+    .replace(/\r?\n|\r/g, ' ') // line breaks changed to space https://stackoverflow.com/a/10805292
     .replace(/[.,\/#!$%\^&\*;:{}=_`\"~()]/g, '')
+    .replace(/\s{2,}/g, ' ') // remove extra spaces https://stackoverflow.com/a/4328722
     .split(' ');
 };
 

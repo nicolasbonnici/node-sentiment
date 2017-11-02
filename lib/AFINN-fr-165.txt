@@ -1123,7 +1123,7 @@ imposée	-1
 impose	-1
 impuissante	-2
 impressionner	3
-impressionné	3
+impressionné	1
 impressionne	3
 impressionnante	3
 emprisonné	-2
@@ -2050,7 +2050,6 @@ déloyale	-2
 inassouvi	-2
 malsain	-2
 unifié	1
-impressionné	-2
 inintelligente	-2
 injuste	-2
 unlovable	-2
