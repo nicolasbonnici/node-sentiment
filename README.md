@@ -9,6 +9,8 @@ He has full support on emoji analysis.
 
 Language detection if not provided at call.
 
+Sentiment analysis is suitable at a sentence level, for long strings, please tokenize sentences and use sentiment on every chunk.
+
 This project is a fork of the original sentiment project: https://github.com/thisandagain/sentiment
 
 # Usage
