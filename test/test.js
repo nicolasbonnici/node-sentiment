@@ -1,8 +1,3 @@
-/*
- * If you want run tests please install the test framework Mocha (https://mochajs.org).
- * Then type the command on the parent folder: mocha test
- */
-
 // Require assert mocha
 var assert = require('assert');
 
