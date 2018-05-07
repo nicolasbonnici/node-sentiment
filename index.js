@@ -89,11 +89,11 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
     function getTextEmojis(sPhrase) {
 
         // detect smileys like :) ;) :p :/ =/ :-) :( :D xD :-) ^^
-        let regexTextEmojis = new RegExp(/(<[\/\\]?3|[()/|*$][-^]?[:;=]|x[d()]|\^[a-z._-]{0,1}\^['"]{0,1}|[:;=B8][\-^]?[3DOPp@$*\\)(\/|])(?=\s|[!.?]|$)/, 'gim');
+        let regexTextEmojis = new RegExp(/(<[\/\\]?3|[()/|*$][-^]?[:;=]|x[d()]|\^[a-z._-]{?}\^['"]{?}|[:;=B8][\-^]?[3DOPp@$*\\)(\/|])(?=\s|[!.?]|$)/, 'gim');
 
         let smileyArray;
         while ((smileyArray = regexTextEmojis.exec(sPhrase.toLocaleLowerCase())) !== null) { // convert to lowercase for emojis like :s :S
-            const smileyScore = textEmoji['textemoji'].[smileyArray[0]]; // get the emoji score
+            const smileyScore = textEmoji['textemoji'][smileyArray[0]]; // get the emoji score
             iGlobalScore += Number(smileyScore); // add the score to the global score
 
             // add the smiley into the positive/negative arrays
