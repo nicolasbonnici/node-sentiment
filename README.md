@@ -81,10 +81,17 @@ npm test
 
 # Changelog
 
-### 18/07/2017 Minor release 0.0.5
+### 06/09/2018 Patch 0.0.7
+package.json update to remove mocha from production dependencies
+npm lock file added
+
+### 18/07/2017 Patch 0.0.6
+Fix on tokenize method and integration test added on it
+
+### 18/07/2017 Patch 0.0.5
 Whole code review
 Basic CLI interface added and project renamed to node-sentiment for npm package
 
-### 17/07/2017 Minor release 0.0.4
+### 17/07/2017 Patch 0.0.4
 Negation detection fix
 Language detection feature POC added
