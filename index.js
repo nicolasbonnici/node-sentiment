@@ -1,8 +1,10 @@
+"use strict";
+
 /*
  * Multilanguage AFINN-based sentiment analysis for Node.js
  */
-var oDictionary = require('./lib/AFINN.js');
-var oLangDetect = new (require('languagedetect'));
+let oDictionary = require('./lib/AFINN.js');
+let oLangDetect = new (require('languagedetect'));
 
 /**
  * Split a sentence into words
@@ -32,7 +34,7 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
   }
 
   // Storage objects
-  var aTokens = tokenize(sPhrase),
+  let aTokens = tokenize(sPhrase),
     iGlobalScore = 0,
     aWords = [],
     aPositive = [],
@@ -41,16 +43,16 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
 
   // Detect language if needed (beta must be performed on each word for more efficiency)
   if (sLangCode == null) {
-    var aDetectedLang = oLangDetect.detect(aTokens.join(' '), 1);
+    let aDetectedLang = oLangDetect.detect(aTokens.join(' '), 1);
     if (aDetectedLang[0]) {
       sLangCode = aDetectedLang[0][0].substring(0, 2);
     }
   }
 
   // Iterate over tokens
-  var len = aTokens.length;
+  let len = aTokens.length;
   while (len--) {
-    var sToken = String(aTokens[len]), iCurrentScore = 0;
+    let sToken = String(aTokens[len]), iCurrentScore = 0;
 
     // Negation flag
     if (oDictionary["negations"][sLangCode] && oDictionary["negations"][sLangCode][sToken]) {
@@ -81,7 +83,7 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
   iGlobalScore = iGlobalScore * (bNegation === true ? -1 : 1);
 
   // Handle optional async interface
-  var oResult = {
+  let oResult = {
     score: iGlobalScore,
     comparative: iGlobalScore / aTokens.length,
     vote: 'neutral',
