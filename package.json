@@ -1,6 +1,6 @@
 {
   "name": "node-sentiment",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Multilanguage and emojis AFINN-based sentiment analysis for Node.js",
   "license": "MIT",
   "main": "index.js",
