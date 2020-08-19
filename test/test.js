@@ -100,3 +100,27 @@ describe('Test tokenize() method integration', function () {
   });
 
 });
+
+describe('Test "locale" response field', function () {
+
+  it('It should return the same locale value as input parameters', function () {
+
+    assert.equal(
+      sentiment('Some english sentence', 'en').locale,
+      'en',
+      'Wrong locale value different than the one provided.'
+    );
+
+  });
+
+  it('It should detect the french locale value automagically', function () {
+
+    assert.equal(
+      sentiment('Cette phrase est totalement neutre et rédigé en francais.').locale,
+      'fr',
+      'Wrong locale detected must return french locale "fr".'
+    );
+
+  });
+
+});

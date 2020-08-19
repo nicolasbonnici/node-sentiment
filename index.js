@@ -44,7 +44,7 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
         bNegation = false;
 
     // Detect language if needed (beta must be performed on each word for more efficiency)
-    if (sLangCode == null) {
+    if (!sLangCode) {
         let aDetectedLang = oLangDetect.detect(aTokens.join(' '), 1);
         if (aDetectedLang[0]) {
             sLangCode = aDetectedLang[0][0].substring(0, 2);
@@ -108,6 +108,7 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
     // Handle optional async interface
     let oResult = {
         score: iGlobalScore,
+        locale: sLangCode,
         comparative: iGlobalScore / aTokens.length,
         vote: 'neutral',
         tokens: aTokens,
