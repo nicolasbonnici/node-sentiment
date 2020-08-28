@@ -23,9 +23,9 @@ function tokenize(sInput) {
     return sInput
         .toLowerCase()
         .replace(/\r?\n|\r/g, ' ') // line breaks replaced by space https://stackoverflow.com/a/10805292
-        .replace(/[.,\/#!$%\^&\*;:{}=_`\"~()]/g, '')
+        .replace(/[.,\/#!$%\^&\*\?;:{}=_`\"~()]/g, '') // Clean punctuation and other special characters
         .replace(/\s{2,}/g, ' ') // remove extra spaces https://stackoverflow.com/a/4328722
-        .split(' ');
+        .split(' '); // Tokenize on spaces
 };
 
 // Performs sentiment analysis on the provided input 'phrase'
@@ -108,7 +108,6 @@ module.exports = function (sPhrase, sLangCode, mCallback) {
     // Handle optional async interface
     let oResult = {
         score: iGlobalScore,
-        locale: sLangCode,
         comparative: iGlobalScore / aTokens.length,
         vote: 'neutral',
         tokens: aTokens,
